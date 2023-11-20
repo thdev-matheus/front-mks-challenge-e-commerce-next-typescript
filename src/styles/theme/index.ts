@@ -1,6 +1,7 @@
 export class Theme {
   static light = {
     primary: "#0F52BA",
+    secondary: "#FFFF30",
     bgPrimary: "#FFFFFF",
     bgSecondary: "#373737",
     textPrimary: "#2C2C2C",
@@ -11,6 +12,7 @@ export class Theme {
 
   static dark = {
     primary: this.light.primary,
+    secondary: this.light.secondary,
     bgPrimary: this.light.bgSecondary,
     bgSecondary: this.light.bgPrimary,
     textPrimary: this.light.textSecondary,

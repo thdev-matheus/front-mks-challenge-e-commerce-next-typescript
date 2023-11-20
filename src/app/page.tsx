@@ -1,7 +1,9 @@
+import * as V from "@/views";
+
 export default function Home() {
   return (
     <>
-      <h1>Home</h1>
+      <V.Header />
     </>
   );
 }
