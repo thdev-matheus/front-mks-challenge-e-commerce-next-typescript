@@ -7,6 +7,7 @@ export const Header = () => {
   return (
     <S.Container>
       <C.Logo />
+      <C.CartButton />
     </S.Container>
   );
 };
