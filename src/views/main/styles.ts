@@ -8,10 +8,13 @@ export const Container = styled.main`
     height: 100%;
 
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 2rem;
 
-    padding: 3rem 5vw;
+    overflow: hidden auto;
+
+    padding: 3rem 10vw;
   }
 `;
