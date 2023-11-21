@@ -81,7 +81,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const resetCart = () => setCart([]);
 
   useEffect(() => {
-    const total = cart.reduce((acc, prod) => acc + prod.price, 0);
+    const total = cart.reduce(
+      (acc, prod) => acc + prod.price * prod.quantity,
+      0
+    );
 
     setTotalPay(total);
     setQuant(cart.length);
