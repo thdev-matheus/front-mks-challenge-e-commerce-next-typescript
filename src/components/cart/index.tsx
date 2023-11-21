@@ -3,13 +3,15 @@ import * as S from "./styles";
 import { IoMdCloseCircle } from "react-icons/io";
 import { useAnimation } from "framer-motion";
 import { useEffect } from "react";
+import { CartProductcard } from "../cartProductcard";
+import { v4 as uuid } from "uuid";
 
 interface ICartProps {
   toggleIsCartOpen: () => void;
 }
 
 export const Cart = ({ toggleIsCartOpen }: ICartProps) => {
-  const { cart, removeFromCart, resetCart, totalPay } = useCart();
+  const { cart, resetCart, totalPay } = useCart();
   const controll = useAnimation();
 
   const variants = {
@@ -52,7 +54,13 @@ export const Cart = ({ toggleIsCartOpen }: ICartProps) => {
           />
         </S.CartHeader>
 
-        <S.CartMain></S.CartMain>
+        <S.CartMain>
+          {cart.length === 0 ? (
+            <h3>Não há produtos no carrinho</h3>
+          ) : (
+            cart.map((prod) => <CartProductcard key={uuid()} product={prod} />)
+          )}
+        </S.CartMain>
 
         <S.CartFooter>
           <button className="reset_cart" onClick={resetCart}>

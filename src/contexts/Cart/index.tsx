@@ -12,6 +12,7 @@ interface ICartContext {
   cart: ICartProduct[];
   addToCart: (productId: string) => void;
   removeFromCart: (productId: string) => void;
+  deleteFromCart: (productId: string) => void;
   resetCart: () => void;
   totalPay: number;
   quant: number;
@@ -78,6 +79,21 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  const deleteFromCart = (productId: string) => {
+    const cartProduct = cart.find((prod) => prod.objectId === productId);
+
+    if (!cartProduct) {
+      //lógica de feedback de erro
+      return;
+    } else {
+      const newCart = cart.filter(
+        (prod) => prod.objectId !== cartProduct.objectId
+      );
+
+      setCart(newCart);
+    }
+  };
+
   const resetCart = () => setCart([]);
 
   useEffect(() => {
@@ -92,7 +108,15 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, resetCart, totalPay, quant }}
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        deleteFromCart,
+        resetCart,
+        totalPay,
+        quant,
+      }}
     >
       {children}
     </CartContext.Provider>

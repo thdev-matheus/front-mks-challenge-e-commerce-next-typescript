@@ -79,9 +79,12 @@ export const CartMain = styled.section`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    gap: 1rem;
+
+    overflow: hidden auto;
 
     padding: 5%;
-    border: 1px solid yellow;
+    margin-bottom: 1rem;
   }
 `;
 
