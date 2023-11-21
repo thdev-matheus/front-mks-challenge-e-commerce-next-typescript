@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import { Providers } from "@/contexts";
 import { Styles } from "@/styles";
 

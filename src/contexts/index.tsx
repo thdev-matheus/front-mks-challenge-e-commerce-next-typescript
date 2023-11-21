@@ -1,8 +1,14 @@
 import { ReactNode } from "react";
-import { ThemeProvider, useTheme } from "./Theme";
 
-export { useTheme };
+import { ThemeProvider, useTheme } from "./Theme";
+import { ProductsProvider, useProducts } from "./Products";
+
+export { useTheme, useProducts };
 
 export const Providers = ({ children }: { children: ReactNode }) => {
-  return <ThemeProvider>{children}</ThemeProvider>;
+  return (
+    <ProductsProvider>
+      <ThemeProvider>{children}</ThemeProvider>
+    </ProductsProvider>
+  );
 };

@@ -6,19 +6,11 @@ interface IThemeContext {
   toggleTheme: () => void;
 }
 
-interface IThemeProviderProps {
-  children: ReactNode;
-}
-
 const ThemeContext = createContext<IThemeContext>({} as IThemeContext);
 
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
+export const useTheme = () => useContext(ThemeContext);
 
-  return context;
-};
-
-export const ThemeProvider = ({ children }: IThemeProviderProps) => {
+export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<"light" | "dark">(Theme.getTheme());
 
   const toggleTheme = () => {
