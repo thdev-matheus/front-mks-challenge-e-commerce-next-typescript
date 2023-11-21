@@ -5,7 +5,11 @@ import * as S from "./styles";
 import { useEffect, useRef } from "react";
 import { useAnimation, useInView } from "framer-motion";
 
-export const CartButton = () => {
+interface ICartButtonProps {
+  toggleIsCartOpen: () => void;
+}
+
+export const CartButton = ({ toggleIsCartOpen }: ICartButtonProps) => {
   const quant = 10;
 
   const quantRef = useRef(null);
@@ -32,7 +36,7 @@ export const CartButton = () => {
   }, [quantIsInView]);
 
   return (
-    <S.Container>
+    <S.Container onClick={toggleIsCartOpen}>
       <FaCartShopping />
       {quant > 0 && (
         <S.BoxQuant
