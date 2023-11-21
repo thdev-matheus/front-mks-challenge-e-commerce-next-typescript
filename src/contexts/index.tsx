@@ -2,13 +2,16 @@ import { ReactNode } from "react";
 
 import { ThemeProvider, useTheme } from "./Theme";
 import { ProductsProvider, useProducts } from "./Products";
+import { CartProvider, useCart } from "./Cart";
 
-export { useTheme, useProducts };
+export { useTheme, useProducts, useCart };
 
 export const Providers = ({ children }: { children: ReactNode }) => {
   return (
     <ProductsProvider>
-      <ThemeProvider>{children}</ThemeProvider>
+      <CartProvider>
+        <ThemeProvider>{children}</ThemeProvider>
+      </CartProvider>
     </ProductsProvider>
   );
 };

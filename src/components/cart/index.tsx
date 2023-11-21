@@ -1,3 +1,4 @@
+import { useCart } from "@/contexts";
 import * as S from "./styles";
 
 interface ICartProps {
@@ -5,6 +6,8 @@ interface ICartProps {
 }
 
 export const Cart = ({ toggleIsCartOpen }: ICartProps) => {
+  const { cart } = useCart();
+
   return (
     <S.Container>
       <S.deadArea onClick={toggleIsCartOpen} />

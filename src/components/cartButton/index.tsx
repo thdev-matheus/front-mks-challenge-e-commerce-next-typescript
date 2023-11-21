@@ -2,15 +2,18 @@
 
 import { FaCartShopping } from "react-icons/fa6";
 import * as S from "./styles";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAnimation, useInView } from "framer-motion";
+import { useCart } from "@/contexts";
 
 interface ICartButtonProps {
   toggleIsCartOpen: () => void;
 }
 
 export const CartButton = ({ toggleIsCartOpen }: ICartButtonProps) => {
-  const quant = 10;
+  const { quant } = useCart();
+
+  console.log(quant);
 
   const quantRef = useRef(null);
   const quantIsInView = useInView(quantRef, { once: true });
@@ -33,20 +36,19 @@ export const CartButton = ({ toggleIsCartOpen }: ICartButtonProps) => {
     if (quantIsInView) {
       quantControl.start("visible");
     }
-  }, [quantIsInView]);
+  }, [quant]);
 
   return (
-    <S.Container onClick={toggleIsCartOpen}>
+    <S.Container onClick={toggleIsCartOpen} ref={quantRef}>
       <FaCartShopping />
       {quant > 0 && (
         <S.BoxQuant
-          ref={quantRef}
           transition={quantTansitions}
           variants={quantVariants}
           initial={quantVariants.hidden}
           animate={quantControl}
         >
-          10
+          {quant}
         </S.BoxQuant>
       )}
     </S.Container>
