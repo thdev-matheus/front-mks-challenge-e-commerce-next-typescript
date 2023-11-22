@@ -8,6 +8,8 @@ export const Container = styled.section`
 
   position: relative;
 
+  cursor: pointer;
+
   & > svg {
     width: 4rem;
     height: 4rem;
