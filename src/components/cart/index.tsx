@@ -69,7 +69,7 @@ export const Cart = ({ toggleIsCartOpen }: ICartProps) => {
 
           <S.BoxTotal>
             <h4>Total:</h4>
-            <h4>R$ {totalPay.toString().replace(".", ",")}</h4>
+            <h4>R$ {totalPay.toFixed(2).toString().replace(".", ",")}</h4>
           </S.BoxTotal>
 
           <button className="purchase">Finalizar Compra</button>

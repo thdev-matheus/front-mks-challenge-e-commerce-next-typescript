@@ -3,6 +3,7 @@ import * as S from "./styles";
 import { IoMdCloseCircle } from "react-icons/io";
 import { useCart } from "@/contexts";
 import { useAnimation } from "framer-motion";
+import { QuantButton } from "../quantButton";
 
 interface ICartProductCardProps {
   product: ICartProduct;
@@ -48,7 +49,15 @@ export const CartProductcard = ({ product }: ICartProductCardProps) => {
         <h4>{`${product.brand} ${product.name}`}</h4>
       </S.BoxInfo>
 
-      <S.BoxQuant></S.BoxQuant>
+      <S.BoxQuant>
+        <span>Qtd:</span>
+        <QuantButton
+          product={product}
+          animationToRemove={async () => {
+            await controll.start("hidden");
+          }}
+        />
+      </S.BoxQuant>
 
       <S.BoxValue>
         <h4>R$ {product.price}</h4>

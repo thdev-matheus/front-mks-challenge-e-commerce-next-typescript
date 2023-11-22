@@ -59,10 +59,12 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
     if (!cartProduct) {
       //lógica de feedback de erro
+
       return;
     } else if (cartProduct.quantity > 1) {
-      const newCart = cart.filter((prod) => {
+      const newCart = cart.map((prod) => {
         if (prod.objectId === cartProduct.objectId) {
+          console.log("removeu");
           return { ...prod, quantity: prod.quantity - 1 };
         } else {
           return prod;

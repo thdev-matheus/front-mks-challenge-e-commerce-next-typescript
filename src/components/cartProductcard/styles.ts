@@ -78,10 +78,18 @@ export const BoxQuant = styled.div`
 
     flex: 2;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 0.5rem;
 
-    border: 1px solid yellow;
+    & > span {
+      width: 80%;
+
+      font-weight: 400;
+
+      text-align: start;
+    }
   }
 `;
 

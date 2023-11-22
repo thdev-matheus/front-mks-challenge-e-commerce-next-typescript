@@ -85,6 +85,13 @@ export const CartMain = styled.section`
 
     padding: 5%;
     margin-bottom: 1rem;
+
+    & > h3 {
+      font-size: 2rem;
+      font-weight: 700;
+
+      color: ${(props) => props.theme.white};
+    }
   }
 `;
 

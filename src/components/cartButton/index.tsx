@@ -13,8 +13,6 @@ interface ICartButtonProps {
 export const CartButton = ({ toggleIsCartOpen }: ICartButtonProps) => {
   const { quant } = useCart();
 
-  console.log(quant);
-
   const quantRef = useRef(null);
   const quantIsInView = useInView(quantRef, { once: true });
   const quantControl = useAnimation();
